@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="40dp"
+    android:layout_marginLeft="30dp"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:gravity="center_vertical"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toronto"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/city_stateCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ontario, Canada"
+        android:textSize="25sp"/>
+</LinearLayout>
