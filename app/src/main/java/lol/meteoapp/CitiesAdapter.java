@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class City_Adapter extends RecyclerView.Adapter<City_ViewHolder> {
+public class CitiesAdapter extends RecyclerView.Adapter<City_ViewHolder> {
 
     private List<City> list;
     private OnItemClickListener ocl;
 
-    public City_Adapter(List<City> list, OnItemClickListener ocl) {
+    public CitiesAdapter(List<City> list, OnItemClickListener ocl) {
         this.list = list;
         this.ocl = ocl;
     }

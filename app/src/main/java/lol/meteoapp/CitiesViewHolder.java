@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-public class City_ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class CitiesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView text1;
     public TextView text2;
@@ -12,7 +12,7 @@ public class City_ViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     //private static final String TAG = "MyLogs";
 
-    public City_ViewHolder(View itemView, OnItemClickListener listener) {
+    public CitiesViewHolder(View itemView, OnItemClickListener listener) {
         super(itemView);
         itemView.setOnClickListener(this);
         this.text1 = (TextView) itemView.findViewById(R.id.city_name);

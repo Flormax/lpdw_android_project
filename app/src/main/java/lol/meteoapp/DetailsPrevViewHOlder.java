@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-public class IndexViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class DetailsPrevViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView day;
     public TextView prev;
@@ -12,7 +12,7 @@ public class IndexViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public TextView rainPercent;
     private OnItemClickListener listener;
 
-    public IndexViewHolder(View itemView, OnItemClickListener listener) {
+    public DetailsPrevViewHOlder(View itemView, OnItemClickListener listener) {
         super(itemView);
         itemView.setOnClickListener(this);
         this.day = (TextView) itemView.findViewById(R.id.dayCard_day);
