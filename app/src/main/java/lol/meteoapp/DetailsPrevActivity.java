@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsPrevActivity extends AppCompatActivity implements OnItemClickListener{
+public class DetailsPrevActivity extends AppCompatActivity {
     private static final String TAG = "MyLogs";
     private DetailsPrevAdapter adapter;
     private List<Daycard> daycards;
@@ -36,7 +36,7 @@ public class DetailsPrevActivity extends AppCompatActivity implements OnItemClic
         daycards.add(new Daycard("Monday","Cloudy in the morning", "0°", "% of rain: 17%", R.drawable.weather_clouds));
         daycards.add(new Daycard("Monday","Cloudy in the morning", "0°", "% of rain: 17%", R.drawable.weather_clouds));
 
-        this.adapter = new DetailsPrevAdapter(daycards, this);
+        this.adapter = new DetailsPrevAdapter(daycards);
 
         if (recyclerView != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -45,25 +45,10 @@ public class DetailsPrevActivity extends AppCompatActivity implements OnItemClic
     }
 
     @Override
-    public void onClick(final int position) {
-
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home){
             finish();
         }
-        if(item.getItemId() == R.id.menu_cities){
-            Intent intent = new Intent(this, CitiesActivity.class);
-            startActivity(intent);
-        }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
     }
 }

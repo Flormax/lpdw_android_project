@@ -10,8 +10,6 @@ public class CitiesViewHolder extends RecyclerView.ViewHolder implements View.On
     public TextView text2;
     private OnItemClickListener listener;
 
-    //private static final String TAG = "MyLogs";
-
     public CitiesViewHolder(View itemView, OnItemClickListener listener) {
         super(itemView);
         itemView.setOnClickListener(this);

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,10 +17,11 @@ import java.util.Locale;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
     private static final String TAG = "MyLogs";
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.home, container, false);
     }
 
@@ -75,24 +74,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             Intent intent = new Intent(this.getContext(), DetailsPrevActivity.class);
             startActivity(intent);
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.menu_cities){
-            Intent intent = new Intent(this.getActivity(), CitiesActivity.class);
-            startActivity(intent);
-        }
-        if(item.getItemId() == R.id.ll_weather5days){
-            Intent intent = new Intent(this.getContext(), DetailsPrevActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getActivity().getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
     }
 }

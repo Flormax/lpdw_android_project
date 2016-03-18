@@ -1,7 +1,11 @@
 package lol.meteoapp;
 
-/**
- * Created by Max on 18/03/16.
- */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
+    public int id;
+    public String description;
+
+    public Weather(){}
 }

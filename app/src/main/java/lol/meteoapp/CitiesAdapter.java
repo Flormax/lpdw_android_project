@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class CitiesAdapter extends RecyclerView.Adapter<City_ViewHolder> {
+public class CitiesAdapter extends RecyclerView.Adapter<CitiesViewHolder> {
 
     private List<City> list;
     private OnItemClickListener ocl;
@@ -17,12 +17,12 @@ public class CitiesAdapter extends RecyclerView.Adapter<City_ViewHolder> {
         this.ocl = ocl;
     }
 
-    public City_ViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
+    public CitiesViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.city,viewGroup,false);
-        return new City_ViewHolder(view, ocl);
+        return new CitiesViewHolder(view, ocl);
     }
 
-    public void onBindViewHolder(City_ViewHolder holder, int position) {
+    public void onBindViewHolder(CitiesViewHolder holder, int position) {
         City city = list.get(position);
         holder.bind(city);
     }

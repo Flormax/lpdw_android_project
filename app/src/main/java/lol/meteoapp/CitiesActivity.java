@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CitiesActivity extends AppCompatActivity implements OnItemClickListener {
     private static final String TAG = "MyLogs";
-    private City_Adapter adapter;
+    private CitiesAdapter adapter;
     private List<City> cities;
 
     @Override
@@ -33,7 +33,7 @@ public class CitiesActivity extends AppCompatActivity implements OnItemClickList
         cities.add(new City("Toronto","Ontario, Canada"));
         cities.add(new City("Paris","Ile de france, France"));
 
-        this.adapter = new City_Adapter(cities, this);
+        this.adapter = new CitiesAdapter(cities, this);
 
         if (recyclerView != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
