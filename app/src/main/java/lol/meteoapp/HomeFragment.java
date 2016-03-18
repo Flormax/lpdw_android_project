@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -63,18 +64,35 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         ((TextView) weather_5days_views[3].findViewById(R.id.night_temp)).setText("-6°");
         ((TextView) weather_5days_views[4].findViewById(R.id.night_temp)).setText("-9°");
 
-        View onclick_card = view.findViewById(R.id.onclick_card);
-        if (onclick_card != null) {
-            onclick_card.setOnClickListener(this);
+        if (weather_5days != null) {
+            weather_5days.setOnClickListener(this);
         }
-
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.onclick_card){
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
+        if(v.getId() == R.id.ll_weather5days){
+            Intent intent = new Intent(this.getContext(), DetailsPrevActivity.class);
+            startActivity(intent);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.menu_cities){
+            Intent intent = new Intent(this.getActivity(), CitiesActivity.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.ll_weather5days){
+            Intent intent = new Intent(this.getContext(), DetailsPrevActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getActivity().getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 }

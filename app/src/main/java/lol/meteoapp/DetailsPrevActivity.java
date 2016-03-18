@@ -1,6 +1,7 @@
 package lol.meteoapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsPrevActivity extends AppCompatActivity implements OnItemClickListener {
+public class DetailsPrevActivity extends AppCompatActivity implements OnItemClickListener{
     private static final String TAG = "MyLogs";
     private DetailsPrevAdapter adapter;
     private List<Daycard> daycards;
@@ -21,16 +22,10 @@ public class DetailsPrevActivity extends AppCompatActivity implements OnItemClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailsprev_recyclerview);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Bundle extras = getIntent().getExtras();
-        String param1 = extras.getString("param1");
-
-        Log.d(TAG, param1);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.detailsprev_recyclerview);
 
@@ -51,24 +46,7 @@ public class DetailsPrevActivity extends AppCompatActivity implements OnItemClic
 
     @Override
     public void onClick(final int position) {
-        Log.d(TAG, "onClick " + position + " " + adapter.getDayCardAt(position).day);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Voulez vous supprimer la ville?")
-                .setTitle("Attention");
-        builder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                daycards.remove(position);
-                adapter.notifyItemRemoved(position);
-                dialog.dismiss();
-            }
-        });
-        builder.setNegativeButton("NON", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+
     }
 
     @Override
@@ -76,9 +54,12 @@ public class DetailsPrevActivity extends AppCompatActivity implements OnItemClic
         if(item.getItemId() == android.R.id.home){
             finish();
         }
+        if(item.getItemId() == R.id.menu_cities){
+            Intent intent = new Intent(this, CitiesActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

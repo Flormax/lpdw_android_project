@@ -9,21 +9,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class IndexAdapter extends FragmentPagerAdapter {
 
-    private final List fragments;
+    public final List fragments;
 
     public IndexAdapter(FragmentManager fm) {
         super(fm);
         fragments = new ArrayList<>();
-        Fragment frag;
 
-        fragments.add(new FragmentEditor());
-        fragments.add(new FragmentEditor());
-        fragments.add(new FragmentEditor());
-
-        for (int i = 0; i < fragments.size(); i++) {
-            ((Fragment) fragments.get(i)).getFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-        }
-
+        fragments.add(new HomeFragment());
+        fragments.add(new HomeFragment());
+        fragments.add(new HomeFragment());
     }
 
     @Override
@@ -49,6 +43,4 @@ public class IndexAdapter extends FragmentPagerAdapter {
                 return "toto";
         }
     }
-
-
 }
