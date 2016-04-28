@@ -14,13 +14,13 @@ public class CitiesViewHolder extends RecyclerView.ViewHolder implements View.On
         super(itemView);
         itemView.setOnClickListener(this);
         this.text1 = (TextView) itemView.findViewById(R.id.city_name);
-        this.text2 = (TextView) itemView.findViewById(R.id.city_stateCountry);
+        this.text2 = (TextView) itemView.findViewById(R.id.city_stateCountryCode);
         this.listener = listener;
     }
 
-    public void bind(City city){
-        text1.setText(city.name);
-        text2.setText(city.stateCountry);
+    public void bind(MyCity myCity){
+        text1.setText(myCity.name);
+        text2.setText(myCity.CountryCode);
     }
 
     public void onClick(View view) {

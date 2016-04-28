@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class DetailsPrevAdapter extends RecyclerView.Adapter<DetailsPrevViewHolder> {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
 
     private List<Daycard> list;
 
-    public DetailsPrevAdapter(List<Daycard> list) {
+    public ForecastAdapter(List<Daycard> list) {
         this.list = list;
     }
 
-    public DetailsPrevViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
+    public ForecastViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.detailsprev_daycard,viewGroup,false);
-        return new DetailsPrevViewHolder(view);
+        return new ForecastViewHolder(view);
     }
 
-    public void onBindViewHolder(DetailsPrevViewHolder holder, int position) {
+    public void onBindViewHolder(ForecastViewHolder holder, int position) {
         Daycard daycard = list.get(position);
         holder.bind(daycard);
     }

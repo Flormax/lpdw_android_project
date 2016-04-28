@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CitiesAdapter extends RecyclerView.Adapter<CitiesViewHolder> {
 
-    private List<City> list;
+    private List<MyCity> list;
     private OnItemClickListener ocl;
 
-    public CitiesAdapter(List<City> list, OnItemClickListener ocl) {
+    public CitiesAdapter(List<MyCity> list, OnItemClickListener ocl) {
         this.list = list;
         this.ocl = ocl;
     }
@@ -23,15 +23,29 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesViewHolder> {
     }
 
     public void onBindViewHolder(CitiesViewHolder holder, int position) {
-        City city = list.get(position);
-        holder.bind(city);
+        MyCity myCity = list.get(position);
+        holder.bind(myCity);
+    }
+
+    public void insert(MyCity myCity) {
+        list.add(0, myCity);
+        notifyItemInserted(0);
+    }
+
+    public void remove(int position) {
+        list.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public MyCity get(int position) {
+        return list.get(position);
     }
 
     public int getItemCount() {
         return list.size();
     }
 
-    public City getCityAt(int position) {
+    public MyCity getCityAt(int position) {
         return list.get(position);
     }
 }

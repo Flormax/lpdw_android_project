@@ -3,44 +3,46 @@ package lol.meteoapp;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 public class IndexAdapter extends FragmentPagerAdapter {
 
-    public final List fragments;
+    public List<HomeFragment> frags;
 
-    public IndexAdapter(FragmentManager fm) {
+    public IndexAdapter(FragmentManager fm, Context context) {
         super(fm);
-        fragments = new ArrayList<>();
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        frags = new ArrayList<>();
+        List<MyCity> cities = db.getAllCities();
+        db.close();
+        for (MyCity myCity : cities) {
+            frags.add(new HomeFragment(myCity));
+        }
+    }
 
-        fragments.add(new HomeFragment());
-        fragments.add(new HomeFragment());
-        fragments.add(new HomeFragment());
+    public void insert() {
+        //frags.add(0, );
+    }
+
+    public void remove(int position) {
+        frags.remove(position);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return (Fragment) this.fragments.get(position);
+    public HomeFragment getItem(int position) {
+        return this.frags.get(position);
     }
 
     @Override
     public int getCount() {
-        return this.fragments.size();
+        return this.frags.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return "tab 1";
-            case 1:
-                return "tab 2";
-            case 2:
-                return "tab 3";
-            default:
-                return "toto";
-        }
+        return frags.get(position).myCity.name;
     }
 }

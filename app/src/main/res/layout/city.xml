@@ -21,9 +21,9 @@
         android:textStyle="bold"
         android:textSize="25sp"/>
     <TextView
-        android:id="@+id/city_stateCountry"
+        android:id="@+id/city_stateCountryCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ontario, Canada"
+        android:text="ca"
         android:textSize="25sp"/>
 </LinearLayout>

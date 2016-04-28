@@ -4,26 +4,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-public class DetailsPrevViewHolder extends RecyclerView.ViewHolder {
+public class ForecastViewHolder extends RecyclerView.ViewHolder {
 
     public TextView day;
     public TextView prev;
-    public TextView temp;
-    public TextView rainPercent;
+    public TextView temp_min;
+    public TextView temp_max;
 
-    public DetailsPrevViewHolder(View itemView) {
+    public ForecastViewHolder(View itemView) {
         super(itemView);
         this.day = (TextView) itemView.findViewById(R.id.dayCard_day);
         this.prev = (TextView) itemView.findViewById(R.id.dayCard_prevision);
-        this.temp = (TextView) itemView.findViewById(R.id.dayCard_temp);
-        this.rainPercent = (TextView) itemView.findViewById(R.id.dayCard_rainPercent);
+        this.temp_min = (TextView) itemView.findViewById(R.id.dayCard_temp_min);
+        this.temp_max = (TextView) itemView.findViewById(R.id.dayCard_temp_max);
     }
 
     public void bind(Daycard daycard){
         day.setText(daycard.day);
         prev.setText(daycard.prev);
         prev.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, daycard.img);
-        temp.setText(daycard.temp);
-        rainPercent.setText(daycard.rainPercent);
+        temp_min.setText(daycard.temp_min);
+        temp_max.setText(daycard.temp_max);
     }
 }

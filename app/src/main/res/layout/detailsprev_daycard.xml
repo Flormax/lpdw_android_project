@@ -28,21 +28,20 @@
             android:drawablePadding="40dp"
             android:textSize="15sp"/>
         <TextView
-            android:id="@+id/dayCard_temp"
-            android:layout_alignRight="@+id/dayCard_rainPercent"
-            android:layout_above="@id/dayCard_rainPercent"
+            android:id="@+id/dayCard_temp_min"
+            android:layout_toRightOf="@id/dayCard_prevision"
+            android:layout_alignBottom="@id/dayCard_prevision"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0°"
-            android:textSize="70sp"/>
+            android:text="0°/"
+            android:textSize="40sp"/>
         <TextView
-            android:id="@+id/dayCard_rainPercent"
-            android:layout_toRightOf="@id/dayCard_prevision"
+            android:id="@+id/dayCard_temp_max"
+            android:layout_toRightOf="@id/dayCard_temp_min"
             android:layout_alignBottom="@+id/dayCard_prevision"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:paddingBottom="20dp"
-            android:text="Chance of rain/snow: 0%"/>
+            android:textSize="40sp"
+            android:text="12°"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

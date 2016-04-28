@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Météo</string>
+
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+
+    <string name="add_city">Ajouter</string>
+    <string name="add_city_name">Nom de la ville</string>
+
+    <string name="api_error_1">Une erreur est survenue</string>
+    <string name="api_error_2">Ville inconnue</string>
+
+    <string name="delete_city_1">Voulez-vous supprimer cette ville?</string>
+    <string name="delete_city_2">Attention</string>
 </resources>
