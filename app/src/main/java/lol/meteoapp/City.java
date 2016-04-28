@@ -10,9 +10,11 @@ public class City implements Parcelable{
     public int id;
     public String name;
 
+    public City(){}
+
     protected City(Parcel in) {
-        this.name = in.readString();
-        this.id = in.readInt();
+        id = in.readInt();
+        name = in.readString();
     }
 
     public static final Creator<City> CREATOR = new Creator<City>() {
@@ -28,13 +30,11 @@ public class City implements Parcelable{
     };
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
+    public int describeContents() { return 0; }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(String.valueOf(id));
+        dest.writeInt(id);
         dest.writeString(name);
     }
 }

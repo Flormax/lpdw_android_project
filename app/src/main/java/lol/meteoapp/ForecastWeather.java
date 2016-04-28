@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lol.meteoapp.JSON_PARSING.City;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ForecastWeather implements Parcelable {
     public ForecastWeather(){}
@@ -35,5 +37,6 @@ public class ForecastWeather implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(city, flags);
     }
 }
