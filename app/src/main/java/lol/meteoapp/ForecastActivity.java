@@ -11,29 +11,23 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
+import lol.meteoapp.JSON_PARSING.ForecastWeather;
 
 public class ForecastActivity extends AppCompatActivity {
     private static final String TAG = "MyLogs";
     private ForecastAdapter adapter;
     private List<Daycard> daycards;
-    private String cityName;
+    private ForecastWeather forecast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //sendRequest();
-
         Intent intent = getIntent();
-        cityName = intent.getStringExtra("city");
-        Log.d("LOG CITY NAME", cityName);
 
-        ForecastWeather f = intent.getParcelableExtra("forecast");
-        Log.d(TAG, f.city.name);
+        forecast = intent.getParcelableExtra("forecast");
+        String[] days = intent.getStringArrayExtra("days");
+        Log.d(TAG, String.valueOf(forecast.list[0].main.temp_max));
+        Log.d(TAG, String.valueOf(forecast.list[0].main.temp_min));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailsprev_recyclerview);
@@ -49,44 +43,20 @@ public class ForecastActivity extends AppCompatActivity {
         daycards.add(new Daycard());
         daycards.add(new Daycard());
 
+        for (int i = 0; i < 5; i++) {
+            daycards.get(i).img = WeatherRessources.BIG_ICONS.get(this.forecast.list[i].weather[0].id);
+            daycards.get(i).prev = WeatherRessources.DESCRIPTIONS.get(forecast.list[i].weather[0].id);
+            daycards.get(i).temp_max = String.valueOf(this.forecast.list[i].main.temp_max) + "°";
+            daycards.get(i).temp_min = String.valueOf(this.forecast.list[i].main.temp_min) + "°/";
+            daycards.get(i).day = days[i];
+            daycards.get(i).humidity = String.valueOf(this.forecast.list[i].main.humidity) + "%";
+        }
+
         this.adapter = new ForecastAdapter(daycards);
 
         if (recyclerView != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(adapter);
-        }
-    }
-
-    public void sendRequest(){
-        Retrofit forecastRetrofit = new Retrofit.Builder()
-                .baseUrl("http://api.openweathermap.org/data/2.5/")
-                .addConverterFactory(JacksonConverterFactory.create())
-                .build();
-        API forecastApi = forecastRetrofit.create(API.class);
-
-
-        Call<ForecastWeather> forecastCall = forecastApi.getForecastByCity(cityName);
-        forecastCall.enqueue(new Callback<ForecastWeather>() {
-            public void onResponse(Call<ForecastWeather> forecastCall, Response<ForecastWeather> forecastResponse) {
-                setForecastData(forecastResponse.body());
-            }
-
-            @Override
-            public void onFailure(Call<ForecastWeather> forecastCall, Throwable t) {
-                Log.d("FAIL REQUEST forecast", "Shit happens :/");
-            }
-        });
-    }
-
-    public void setForecastData(ForecastWeather forecast) {
-        for (int i = 0; i < 5; i++) {
-            String[] days = getIntent().getStringArrayExtra("days");
-            daycards.get(i).day = days[i];
-//            daycards.get(i).img = Icons.BIG_ICONS.get(forecast.list[i].weather[0].id);
-//            daycards.get(i).prev = forecast.list[i].weather[0].description;
-//            daycards.get(i).temp_max = String.valueOf(forecast.list[i].main.temp_min);
-//            daycards.get(i).temp_min = String.valueOf(forecast.list[i].main.temp_max);
-            adapter.notifyItemChanged(i);
         }
     }
 

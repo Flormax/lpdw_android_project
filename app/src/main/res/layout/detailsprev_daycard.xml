@@ -24,23 +24,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Partly cloudy in the morning"
-            android:drawableBottom="@drawable/weather_clouds"
-            android:drawablePadding="40dp"
+            android:drawableBottom="@drawable/big_sun"
+            android:drawablePadding="20dp"
             android:textSize="15sp"/>
         <TextView
-            android:id="@+id/dayCard_temp_min"
-            android:layout_toRightOf="@id/dayCard_prevision"
+            android:id="@+id/dayCard_humidity"
+            android:layout_toLeftOf="@+id/dayCard_humidity_value"
             android:layout_alignBottom="@id/dayCard_prevision"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/humidity"
+            android:paddingRight="2sp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/dayCard_humidity_value"
+            android:layout_alignBottom="@+id/dayCard_humidity"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="57%"/>
+        <TextView
+            android:id="@+id/dayCard_temp_min"
+            android:layout_toLeftOf="@+id/dayCard_temp_max"
+            android:layout_above="@+id/dayCard_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="0°/"
+            android:paddingBottom="10sp"
             android:textSize="40sp"/>
         <TextView
             android:id="@+id/dayCard_temp_max"
-            android:layout_toRightOf="@id/dayCard_temp_min"
-            android:layout_alignBottom="@+id/dayCard_prevision"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/dayCard_humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="10sp"
             android:textSize="40sp"
             android:text="12°"/>
     </RelativeLayout>

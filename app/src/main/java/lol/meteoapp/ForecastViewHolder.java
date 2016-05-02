@@ -10,6 +10,7 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder {
     public TextView prev;
     public TextView temp_min;
     public TextView temp_max;
+    public TextView humidity;
 
     public ForecastViewHolder(View itemView) {
         super(itemView);
@@ -17,6 +18,7 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder {
         this.prev = (TextView) itemView.findViewById(R.id.dayCard_prevision);
         this.temp_min = (TextView) itemView.findViewById(R.id.dayCard_temp_min);
         this.temp_max = (TextView) itemView.findViewById(R.id.dayCard_temp_max);
+        this.humidity = (TextView) itemView.findViewById(R.id.dayCard_humidity_value);
     }
 
     public void bind(Daycard daycard){
@@ -25,5 +27,6 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder {
         prev.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, daycard.img);
         temp_min.setText(daycard.temp_min);
         temp_max.setText(daycard.temp_max);
+        humidity.setText(daycard.humidity);
     }
 }

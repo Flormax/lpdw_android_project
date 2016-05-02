@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/ll_details"
+<LinearLayout android:id="@+id/ll_details_info"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="10dp"
     android:layout_marginLeft="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <include layout="@layout/home_details_item"/>
-    <include layout="@layout/home_details_item"/>
-    <include layout="@layout/home_details_item"/>
-    <include layout="@layout/home_details_item"/>
-    <include layout="@layout/home_details_item"/>
-    <include layout="@layout/home_details_item"/>
+    <include android:id="@+id/ll_detail1" layout="@layout/home_details_item"/>
+    <include android:id="@+id/ll_detail3" layout="@layout/home_details_item"/>
+    <include android:id="@+id/ll_detail4" layout="@layout/home_details_item"/>
+    <include android:id="@+id/ll_detail5" layout="@layout/home_details_item"/>
+    <include android:id="@+id/ll_detail6" layout="@layout/home_details_item"/>
 </LinearLayout>

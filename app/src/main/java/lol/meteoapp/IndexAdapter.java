@@ -23,14 +23,6 @@ public class IndexAdapter extends FragmentPagerAdapter {
         }
     }
 
-    public void insert() {
-        //frags.add(0, );
-    }
-
-    public void remove(int position) {
-        frags.remove(position);
-    }
-
     @Override
     public HomeFragment getItem(int position) {
         return this.frags.get(position);
@@ -43,6 +35,11 @@ public class IndexAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return frags.get(position).myCity.name;
+        if (position > 0) {
+            return frags.get(position).myCity.name;
+        } else {
+            //Onglet généré avec les coordonnées GPS, placé en premier
+            return "You are here";
+        }
     }
 }

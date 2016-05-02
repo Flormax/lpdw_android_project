@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import lol.meteoapp.JSON_PARSING.CurrentWeather;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,7 +92,7 @@ public class CitiesActivity extends AppCompatActivity implements OnItemClickList
                     .build();
             API api = retrofit.create(API.class);
 
-            Call<CurrentWeather> call = api.getTodayByCity(cityName.getText().toString());
+            Call<CurrentWeather> call = api.getTodayByCity(cityName.getText().toString(), "metric");
             call.enqueue(new Callback<CurrentWeather>() {
                 @Override
                 public void onResponse(Call<CurrentWeather> call,
@@ -108,14 +109,11 @@ public class CitiesActivity extends AppCompatActivity implements OnItemClickList
 //                        toast.setDuration(Toast.LENGTH_LONG);
 //                        toast.setView(findViewById(R.id.cities_view));
 //                        toast.show();
-                        Log.d("FAILURE", "Shit happens :/");
+                        Log.d("FAIL ADD CITY REQUEST", "Shit happens :/");
                     }
                 }
-
                 @Override
-                public void onFailure(Call<CurrentWeather> call, Throwable t) {
-                    Log.d("FAILURE", "Shit happens :/");
-                }
+                public void onFailure(Call<CurrentWeather> call, Throwable t) {Log.d("FAILURE", "Shit happens :/");}
             });
         }
     }

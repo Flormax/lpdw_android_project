@@ -12,31 +12,25 @@
         android:layout_marginBottom="10dp"
         android:src="@drawable/temp" />
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/rain" />
-    <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:src="@drawable/wind" />
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:src="@drawable/humidity" />
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/visibility" />
+        android:src="@drawable/cloudiness" />
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
